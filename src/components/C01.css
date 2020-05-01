@@ -1,0 +1,28 @@
+.c01 {
+  height: 400px;
+  display: flex;
+  align-items: center;
+}
+
+.row {
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+}
+
+.column {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+  width: 400px;
+  height: 100%;
+  margin: 15px;
+}
+
+.left {
+  font-size: 4em;
+}
+
+.right {
+  font-size: 1.1em;
+}
