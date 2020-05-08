@@ -93,4 +93,6 @@
   background-color: var(--accent-light);
   font-size: 1.1em;
   padding: 20px 50px 20px 50px;
+  font-weight: bold;
+  color: var(--big-dark);
 }
