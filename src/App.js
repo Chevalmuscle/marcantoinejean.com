@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 
 import ProjectCard from "./components/ProjectCard";
+import NamedProgressBar from "./components/NamedProgressBar";
 
 import styles from "./App.module.css";
 
 import projects from "./data/projects";
+import technologies from "./data/technologies";
 
 export default class App extends Component {
   render() {
@@ -23,8 +25,8 @@ export default class App extends Component {
           </div>
         </div>
         <div className={`${styles["section"]} ${styles["medium"]}`}>
-          <div className={`${styles["second-container"]}`}>
-            <h1 className={`${styles["high-emphasis"]} ${styles["section-title"]}`}>Projets</h1>
+          <div className={`${styles["section-container"]}`}>
+            <h2 className={`${styles["high-emphasis"]} ${styles["section-title"]}`}>Projets</h2>
             <div className={`${styles["center"]}`}>
               <div className={`${styles["project-cards"]}`}>
                 {projects.map((project, i) => {
@@ -43,7 +45,27 @@ export default class App extends Component {
             </div>
           </div>
         </div>
-        <div className={`${styles["section"]} ${styles["light"]}`}></div>
+        <div className={`${styles["section"]} ${styles["light"]}`}>
+          <div className={`${styles["section-container"]}`}>
+            <h2 className={`${styles["section-title"]}`}>Technologies</h2>
+            <div className={`${styles["center"]} ${styles["technologies"]}`}>
+              <p className={`${styles["technology-subtext"]}`}>
+                Voici les principales technologies que j’utilise pour réaliser mes projets personnels. J’accorde une
+                attention particulière à l’architecture et la scalabilité du produit ainsi qu’à l’expérience
+                utilisateur.
+              </p>
+              <ul className={`${styles["technology-list"]}`}>
+                {technologies.map((technology, i) => {
+                  return (
+                    <li key={i} className={styles["skill"]}>
+                      <NamedProgressBar name={technology.name} percentage={technology.skillPercentage} />
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+        </div>
         <div className={`${styles["section"]} ${styles["medium"]}`}></div>
         <div className={`${styles["section"]} ${styles["light"]}`}></div>
       </div>
