@@ -1,0 +1,28 @@
+.container {
+  height: 100%;
+  width: 100%;
+}
+
+.name {
+  width: 100px;
+  height: 100%;
+  background: var(--bg-dark);
+  color: var(--text-high-emphasis);
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-bar {
+  margin-left: 100px;
+  background-color: var(--accent-light);
+  height: 100%;
+  width: calc(100% - 100px);
+}
+
+.inner-progress-bar {
+  background-color: var(--bg-medium);
+  height: 100%;
+  width: 100%;
+}
