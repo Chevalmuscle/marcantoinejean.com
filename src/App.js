@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import ProjectCard from "./components/ProjectCard";
 import NamedProgressBar from "./components/NamedProgressBar";
+import ContactForm from "./components/ContactForm";
 
 import styles from "./App.module.css";
 
@@ -66,7 +67,16 @@ export default class App extends Component {
             </div>
           </div>
         </div>
-        <div className={`${styles["section"]} ${styles["medium"]}`}></div>
+        <div className={`${styles["section"]} ${styles["medium"]}`}>
+          <div className={`${styles["section-container"]}`}>
+            <h2 className={`${styles["high-emphasis"]} ${styles["section-title"]}`}>Contact</h2>
+            <div className={`${styles["center"]}`}>
+              <div className={`${styles["contact-form"]}`}>
+                <ContactForm />
+              </div>
+            </div>
+          </div>
+        </div>
         <div className={`${styles["section"]} ${styles["light"]}`}></div>
       </div>
     );
