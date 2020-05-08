@@ -10,6 +10,11 @@ import projects from "./data/projects";
 import technologies from "./data/technologies";
 
 export default class App extends Component {
+  handleGoSeeProjects(e) {
+    e.preventDefault();
+    this.refs.projects.scrollIntoView();
+  }
+
   render() {
     return (
       <div>
@@ -22,10 +27,12 @@ export default class App extends Component {
               <br />
               Il me reste un stage de 4 mois à effectuer.
             </div>
-            <button className={styles["see-projet-button"]}>Voir mes projets</button>
+            <button className={styles["see-projet-button"]} onClick={this.handleGoSeeProjects.bind(this)}>
+              Voir mes projets
+            </button>
           </div>
         </div>
-        <div className={`${styles["section"]} ${styles["medium"]}`}>
+        <div ref="projects" className={`${styles["section"]} ${styles["medium"]}`}>
           <div className={`${styles["section-container"]}`}>
             <h2 className={`${styles["high-emphasis"]} ${styles["section-title"]}`}>Projets</h2>
             <div className={`${styles["center"]}`}>
