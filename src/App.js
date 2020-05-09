@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import Navbar from "./components/Navbar";
 import ProjectCard from "./components/ProjectCard";
 import NamedProgressBar from "./components/NamedProgressBar";
 import ContactForm from "./components/ContactForm";
@@ -9,16 +10,49 @@ import styles from "./App.module.css";
 import projects from "./data/projects";
 import technologies from "./data/technologies";
 
+const navbarElements = [
+  { label: "À propos", ref: "about" },
+  { label: "Projets", ref: "projects" },
+  { label: "Technologies", ref: "technologies" },
+  { label: "Contact", ref: "contact" },
+];
+
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isStickyNavbar: false,
+    };
+    this.handleScroll = this.handleScroll.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+
   handleGoSeeProjects(e) {
     e.preventDefault();
-    this.refs.projects.scrollIntoView();
+    this.refs.navbar.scrollIntoView();
+  }
+
+  handleOnElementClick(element) {
+    this.refs[element.ref].scrollIntoView(true);
+  }
+
+  handleScroll() {
+    const navbar = document.getElementById("navbar");
+    const stickyPosition = navbar.offsetTop;
+    this.setState({ isStickyNavbar: window.pageYOffset >= stickyPosition });
   }
 
   render() {
     return (
       <div>
-        <div className={`${styles["section"]} ${styles["dark"]} ${styles["center"]}`}>
+        <div ref="about" className={`${styles["section"]} ${styles["dark"]} ${styles["center"]}`}>
           <div className={`${styles["first-container"]}`}>
             <h1 className={`${styles["high-emphasis"]} ${styles["big-title"]}`}>Marc-Antoine Jean</h1>
             <div className={`${styles["high-emphasis"]} ${styles["sub-title"]}`}>
@@ -32,6 +66,14 @@ export default class App extends Component {
             </button>
           </div>
         </div>
+        <div id="navbar" className={styles["navbar"]} ref="navbar">
+          <Navbar
+            isSticky={this.state.isStickyNavbar}
+            elements={navbarElements}
+            handleOnElementClick={this.handleOnElementClick.bind(this)}
+          />
+        </div>
+        <div></div>
         <div ref="projects" className={`${styles["section"]} ${styles["medium"]}`}>
           <div className={`${styles["section-container"]}`}>
             <h2 className={`${styles["high-emphasis"]} ${styles["section-title"]}`}>Projets</h2>
@@ -53,7 +95,7 @@ export default class App extends Component {
             </div>
           </div>
         </div>
-        <div className={`${styles["section"]} ${styles["light"]}`}>
+        <div ref="technologies" className={`${styles["section"]} ${styles["light"]}`}>
           <div className={`${styles["section-container"]}`}>
             <h2 className={`${styles["section-title"]}`}>Technologies</h2>
             <div className={`${styles["center"]} ${styles["technologies"]}`}>
@@ -74,7 +116,7 @@ export default class App extends Component {
             </div>
           </div>
         </div>
-        <div className={`${styles["section"]} ${styles["medium"]}`}>
+        <div ref="contact" className={`${styles["section"]} ${styles["medium"]}`}>
           <div className={`${styles["section-container"]}`}>
             <h2 className={`${styles["high-emphasis"]} ${styles["section-title"]}`}>Contact</h2>
             <div className={`${styles["center"]}`}>
