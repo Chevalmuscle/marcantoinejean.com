@@ -2,17 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 0 40px;
-  position: absolute;
   z-index: 1;
-  width: calc(100% - 80px);
-  background-color: var(--nav-bar-color);
-}
-
-.navbar-sticky {
-  position: fixed;
-  top: 0;
-  left: 0;
   box-shadow: 1px 1px 1px var(--bg-dark);
 }
 
@@ -22,11 +12,12 @@
 }
 
 .navbar-item {
+  color: white;
   padding: 10px 20px;
   cursor: pointer;
   transition: background-color 0.2s linear;
 }
 
 .navbar-item:hover {
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(255, 255, 255, 0.07);
 }
