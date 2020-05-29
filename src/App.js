@@ -1,24 +1,22 @@
 import React, { Component } from "react";
 
-import Navbar from "./components/Navbar";
 import ContactForm from "./components/ContactForm";
 
 import styles from "./App.module.css";
-
-const navbarElements = [
-  { label: "À propos", ref: "about" },
-  { label: "Projets", ref: "projects" },
-  { label: "Technologies", ref: "technologies" },
-  { label: "Contact", ref: "contact" },
-];
 
 export default class App extends Component {
   render() {
     return (
       <div>
-        <Navbar elements={navbarElements} />
-        <div>
-          <ContactForm />
+        <h1>Marc-Antoine Jean</h1>
+        <h2>Work in progress :)</h2>
+        <div className={styles["contact-section"]}>
+          <div className={styles["contact-form-container"]}>
+            <h3>Contact me</h3>
+            <div className={styles["contact-form"]}>
+              <ContactForm />
+            </div>
+          </div>
         </div>
       </div>
     );
