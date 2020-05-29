@@ -1,136 +1,50 @@
-.section {
-  width: 100%;
-  display: inline-block;
+h1,
+h2,
+h3 {
+  color: white;
 }
 
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+h1 {
+  font-size: min(8vw, 2.4rem);
 }
 
-.first-container {
-  max-width: 685px;
-  width: 75%;
+h2 {
+  font-size: min(4vw, 1.2rem);
+}
+
+h3 {
   text-align: center;
+  font-size: min(6vw, 2rem);
 }
 
-.section-container {
-  margin: 40px 60px;
-}
-
-.project-cards {
-  margin: 50px 0px;
-  width: 100%;
-  display: grid;
-  grid-gap: 15px;
-  grid-template-columns: repeat(4, minmax(250px, 250px));
-  align-items: center;
-  justify-content: center;
-}
-
-@media (max-width: 1165px) {
-  .project-cards {
-    grid-template-columns: repeat(3, 250px);
-  }
-}
-
-@media (max-width: 900px) {
-  .project-cards {
-    grid-template-columns: repeat(2, 250px);
-  }
-}
-
-@media (max-width: 635px) {
-  .section-container {
-    margin: 20px 20px;
-  }
-
-  .project-cards {
-    grid-template-columns: repeat(1, 250px);
-  }
-}
-
-.project-card {
-  width: 250px;
-}
-
-.dark {
-  height: 100vh;
-  background-color: var(--bg-dark);
-}
-
-.medium {
-  background-color: var(--bg-medium);
-}
-
-.light {
-  background-color: var(--bg-light);
-}
-
-.high-emphasis {
-  color: var(--text-high-emphasis);
-}
-
-.big-title {
-  font-size: 4.5em;
-}
-
-.sub-title {
-  font-size: 1.2em;
-}
-
-.section-title {
-  font-size: 3em;
-  margin-bottom: 20px;
-}
-
-.see-projet-button {
-  border-radius: 1px;
-  border: none;
-  margin: 15px;
-  background-color: var(--accent-light);
-  font-size: 1.1em;
-  padding: 20px 50px 20px 50px;
-  font-weight: bold;
-  color: var(--big-dark);
-}
-
-.technologies {
+.contact-section {
+  margin: 3rem;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  flex-direction: row;
   align-items: center;
 }
 
-.technology-subtext {
-  max-width: 500px;
+.contact-form-container {
+  width: 80%;
 }
 
-.skill {
-  width: 500px;
-  height: 28px;
-  margin: 0px auto 14px auto;
-}
-
-@media (max-device-width: 750px) {
-  .technologies {
-    display: inline;
+@media screen and (max-width: 600px) {
+  .contact-section {
+    margin: 20px 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
   }
 
-  .skill {
+  .contact-form-container {
     width: 100%;
-    height: 25px;
-    margin-bottom: 14px;
-  }
-
-  .technology-subtext {
-    max-width: 400px;
-    margin: 0 auto 20px auto;
   }
 }
 
 .contact-form {
-  width: 625px;
+  margin: 1rem 0;
 }
 
 .navbar {

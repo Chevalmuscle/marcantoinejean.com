@@ -93,7 +93,7 @@ export default class ContactForm extends Component {
           required
         />
         <div className={styles["sent-button-container"]}>
-          <input type="submit" value="Envoyer" />
+          <input type="submit" value="Send" />
           {this.state.fetchInProgress && (
             <div className={styles["is-fetching-spinner"]}>
               <Spinner />
