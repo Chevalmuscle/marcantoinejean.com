@@ -54,11 +54,11 @@ export default class ContactForm extends Component {
         message: this.state.message,
       })
       .then((response) => {
-        toast.success("Email envoyé 🚀");
+        toast.success("Email Sent 🚀");
       })
       .catch((error) => {
         console.log(error);
-        toast.error("Erreur dans l'envoie du email 🥺");
+        toast.error("Unable to send the email 🥺");
       })
       .finally(() => {
         this.setState({ fetchInProgress: false });
