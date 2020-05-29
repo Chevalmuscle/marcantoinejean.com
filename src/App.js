@@ -1,28 +1,23 @@
-import React from "react";
+import React, { Component } from "react";
 
-import solarSystemImage from "./assets/images/solar-system.png";
-import "./App.css";
+import ContactForm from "./components/ContactForm";
 
-export default class App extends React.Component {
+import styles from "./App.module.css";
+
+export default class App extends Component {
   render() {
     return (
       <div>
-        <div class="text-container">
-          <h1 className="text high-emphasis">Marc-Antoine Jean</h1>
-          <div>
-            <div className="text high-emphasis">
-              Work in progress{" "}
-              <span role="img" aria-label="smiley">
-                🙂
-              </span>
-            </div>
-            <div className="text high-emphasis">
-              Contact me via{" "}
-              <a href="mailto:me@marcantoinejean.com" target="_blank">me@marcantoinejean.com</a>
+        <h1>Marc-Antoine Jean</h1>
+        <h2>Work in progress :)</h2>
+        <div className={styles["contact-section"]}>
+          <div className={styles["contact-form-container"]}>
+            <h3>Contact me</h3>
+            <div className={styles["contact-form"]}>
+              <ContactForm />
             </div>
           </div>
         </div>
-        <img id="solar-system" src={solarSystemImage} alt="solar-system" />
       </div>
     );
   }
