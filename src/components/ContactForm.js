@@ -68,7 +68,7 @@ export default class ContactForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleOnSubmit}>
-        <label htmlFor="name">Nom</label>
+        <label htmlFor="name">Name</label>
         <input
           id="name"
           type="text"
