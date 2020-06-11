@@ -10,7 +10,7 @@ export default class App extends Component {
       <div>
         <h1>Marc-Antoine Jean</h1>
         <h2>
-          software engineering student at{" "}
+          Software engineering student at{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
