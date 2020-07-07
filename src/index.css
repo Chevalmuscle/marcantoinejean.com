@@ -1,26 +1,17 @@
 :root {
-  --bg-dark: #121212;
-  --bg-medium: #283857;
-  --bg-light: #c1d6ff;
-  --accent-light: #b2c8ff;
-  --nav-bar-color: lightblue;
-  --text-high-emphasis: rgba(255, 255, 255, 0.95);
-  --text-medium-emphasis: rgba(255, 255, 255, 0.6);
+  --text-color: #373530;
 }
 
 * {
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: inter, Helvetica, "Apple Color Emoji", Arial, sans-serif,
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: #121212;
 }
 
 ul {

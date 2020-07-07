@@ -1,0 +1,41 @@
+.Drawer {
+  $arrowSize: 6px;
+  width: 100%;
+  display: inline-block;
+
+  &-title {
+    cursor: pointer;
+    background-color: white;
+    border: 0px;
+    display: flex;
+    justify-content: center;
+    outline: none;
+  }
+
+  &-titleText {
+    text-align: left;
+    margin-left: 8px;
+  }
+
+  &-arrow {
+    border-top: $arrowSize solid transparent;
+    border-bottom: $arrowSize solid transparent;
+    border-left: $arrowSize solid var(--text-color);
+    width: 0;
+    height: 0;
+    transition: all 0.5s ease;
+    align-self: center;
+  }
+
+  &.is-expanded {
+    .Drawer-arrow {
+      transform: rotate(90deg);
+    }
+  }
+
+  &-content {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.5s ease;
+  }
+}
