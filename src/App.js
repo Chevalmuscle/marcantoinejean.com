@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Home } from "./components/Home";
+import { ContactForm } from "./components/ContactForm";
 import styles from "./App.module.css";
 import { createBrowserHistory } from "history";
 
@@ -36,7 +37,7 @@ export default class App extends Component {
         case ROUTES.HOME:
           return <Home />;
         case ROUTES.EMAIL:
-          return "email";
+          return <ContactForm />;
         case ROUTES.RESUME:
           return "resume";
         case ROUTES.READING_LIST:
