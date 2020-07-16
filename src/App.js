@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Home } from "./components/Home";
 import { ContactForm } from "./components/ContactForm";
+import { Resume } from "./components/Resume";
 import styles from "./App.module.css";
 import { createBrowserHistory } from "history";
 
@@ -24,6 +25,8 @@ export default class App extends Component {
     for (let route in ROUTES) {
       if (ROUTES[route] === currentPage) {
         this.setState({ currentPage: currentPage });
+        break;
+      }
     }
   }
 
@@ -40,7 +43,7 @@ export default class App extends Component {
         case ROUTES.EMAIL:
           return <ContactForm />;
         case ROUTES.RESUME:
-          return "resume";
+          return <Resume />;
         case ROUTES.READING_LIST:
           return "reading";
         default:
