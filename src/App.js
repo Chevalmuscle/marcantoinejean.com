@@ -21,8 +21,9 @@ export default class App extends Component {
 
   componentDidMount() {
     const currentPage = this.props.location.pathname;
-    if (currentPage in ROUTES) {
-      this.setState({ currentPage: currentPage });
+    for (let route in ROUTES) {
+      if (ROUTES[route] === currentPage) {
+        this.setState({ currentPage: currentPage });
     }
   }
 
