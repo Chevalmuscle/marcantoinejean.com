@@ -1,53 +1,53 @@
 import React from "react";
 import { Drawer } from "./Drawer";
 import styles from "./Home.module.css";
+import { useI18n } from "react-simple-i18n";
 
 function Home() {
+  const { t } = useI18n();
+
   return (
     <ul>
       <li className={styles["list-item"]}>
-        <Drawer title="whoami">
+        <Drawer title={t("home.whoami.title")}>
+          <p>{t("home.whoami.content")}</p>
+        </Drawer>
+      </li>
+      <li className={styles["list-item"]}>
+        <Drawer title={t("home.personality.title")}>
+          <p>{t("home.personality.content")}</p>
+        </Drawer>
+      </li>
+      <li className={styles["list-item"]}>
+        <Drawer title={t("home.workstyle.title")}>
+          <p>{t("home.workstyle.content")}</p>
+        </Drawer>
+      </li>
+      <li className={styles["list-item"]}>
+        <Drawer title={t("home.social.title")}>
           <p>
-            Bacon ipsum dolor amet pig bacon swine jowl, brisket prosciutto ribeye fatback t-bone beef meatloaf ground
-            round. Ground round porchetta ham hock jerky pork drumstick frankfurter landjaeger. Cupim alcatra andouille
-            bacon shankle. Pork buffalo bacon, pork chop cupim chislic burgdoggen pastrami cow turducken salami doner
-            pork loin.
+            {t("home.social.linkedin")} {t("home.social.github")}
           </p>
         </Drawer>
       </li>
       <li className={styles["list-item"]}>
-        <Drawer title="Personnality">
-          <p></p>
+        <Drawer title={t("home.education.title")}>
+          <p>{t("home.education.content")}</p>
         </Drawer>
       </li>
       <li className={styles["list-item"]}>
-        <Drawer title="Workstyle">
-          <p></p>
+        <Drawer title={t("home.interests.title")}>
+          <p>{t("home.interests.content")}</p>
         </Drawer>
       </li>
       <li className={styles["list-item"]}>
-        <Drawer title="Social">
-          <p></p>
+        <Drawer title={t("home.quotes.title")}>
+          <p>{t("home.quotes.content")}</p>
         </Drawer>
       </li>
       <li className={styles["list-item"]}>
-        <Drawer title="Education">
-          <p></p>
-        </Drawer>
-      </li>
-      <li className={styles["list-item"]}>
-        <Drawer title="Interests/Outside the matrix">
-          <p></p>
-        </Drawer>
-      </li>
-      <li className={styles["list-item"]}>
-        <Drawer title="Quotes">
-          <p></p>
-        </Drawer>
-      </li>
-      <li className={styles["list-item"]}>
-        <Drawer title="Inspiration/References">
-          <p></p>
+        <Drawer title={t("home.inspirations.title")}>
+          <p>{t("home.inspirations.content")}</p>
         </Drawer>
       </li>
     </ul>

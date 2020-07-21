@@ -30,12 +30,22 @@ export default class App extends Component {
     }
   }
 
+  handleSetEnglish() {
+    this.props.i18n.setLang("en");
+  }
+
+  handleSetFrench() {
+    this.props.i18n.setLang("fr");
+  }
+
   handleClick(route) {
     history.push(route);
     this.setState({ currentPage: route });
   }
 
   render() {
+    const { t } = this.props;
+
     const currentPage = (() => {
       switch (this.state.currentPage) {
         case ROUTES.HOME:
@@ -53,27 +63,38 @@ export default class App extends Component {
 
     return (
       <div>
+        <div className={styles["lang-container"]}>
+          <button
+            className={`${styles["lang-button"]} ${this.props.i18n.getLang() === "en" && styles["lang-button-active"]}`}
+            onClick={this.handleSetEnglish.bind(this)}
+          >
+            English
+          </button>
+          <button
+            className={`${styles["lang-button"]} ${this.props.i18n.getLang() === "fr" && styles["lang-button-active"]}`}
+            onClick={this.handleSetFrench.bind(this)}
+          >
+            Français
+          </button>
+        </div>
         <div id={styles["cover"]}></div>
         <div id={styles["main-container"]}>
           <div>
             <h1>Marc-Antoine Jean</h1>
-            <p>
-              Bacon ipsum dolor amet pig bacon swine jowl, brisket prosciutto ribeye fatback t-bone beef meatloaf ground
-              round. Ground round porchetta ham hock jerky pork drumstick frankfurter landjaeger.
-            </p>
+            <p>{t("header")}</p>
           </div>
           <div className={styles["navbar"]}>
             <span className={styles["navbar-item"]} onClick={() => this.handleClick(ROUTES.HOME)}>
-              Me
+              {t("nav.home")}
             </span>
             <span className={styles["navbar-item"]} onClick={() => this.handleClick(ROUTES.EMAIL)}>
-              Email
+              {t("nav.email")}
             </span>
             <span className={styles["navbar-item"]} onClick={() => this.handleClick(ROUTES.RESUME)}>
-              Resume
+              {t("nav.resume")}
             </span>
             <span className={styles["navbar-item"]} onClick={() => this.handleClick(ROUTES.READING_LIST)}>
-              Reading List
+              {t("nav.readingList")}
             </span>
           </div>
           <div className={styles["content-container"]}>{currentPage}</div>

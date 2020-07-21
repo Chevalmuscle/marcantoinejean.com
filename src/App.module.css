@@ -27,3 +27,24 @@ h1 {
   text-decoration-line: underline;
   cursor: pointer;
 }
+
+.lang-container {
+  position: absolute;
+  right: 0px;
+  margin: 5px;
+}
+
+.lang-button {
+  display: inline-block;
+  border: none;
+  border-radius: 3px;
+  margin: 2px;
+  color: #ffffff;
+  background: none;
+  outline: 0;
+  cursor: pointer;
+}
+
+.lang-button-active {
+  background: blue;
+}
