@@ -7,6 +7,9 @@ import App from "./App";
 
 import "./index.css";
 
+console.log("°Д°");
+console.log("You can see the dev version somewhere using the dev tools...");
+
 const routing = (
   <Router>
     <div>
