@@ -55,7 +55,7 @@ export default class App extends Component {
         case ROUTES.RESUME:
           return <Resume />;
         case ROUTES.READING_LIST:
-          return "reading";
+          return "Coming soon...";
         default:
           return <Home />;
       }
