@@ -80,6 +80,8 @@ const langData = {
       email: "Email",
       message: "Message",
       send: "Send",
+      success: "Email Sent",
+      error: "Unable to send the email",
     },
     resume: {
       download: "Download PDF version",
@@ -175,6 +177,8 @@ const langData = {
       email: "Email",
       message: "Message",
       send: "Envoyer",
+      success: "Email envoyé",
+      error: "Impossible d'envoyer le email",
     },
     resume: {
       download: "Télécharger la version PDF",

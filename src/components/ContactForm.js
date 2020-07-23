@@ -42,6 +42,7 @@ class ContactForm extends Component {
 
   handleOnSubmit(e) {
     e.preventDefault();
+    const { t } = this.props;
 
     // prevent spam click
     if (this.state.fetchInProgress) return;
@@ -54,11 +55,11 @@ class ContactForm extends Component {
         message: this.state.message,
       })
       .then((response) => {
-        toast.success("Email Sent 🚀");
+        toast.success(`${t("email.success")} 🚀`);
       })
       .catch((error) => {
         console.log(error);
-        toast.error("Unable to send the email 🥺");
+        toast.error(`${t("email.error")} 🥺`);
       })
       .finally(() => {
         this.setState({ fetchInProgress: false });
