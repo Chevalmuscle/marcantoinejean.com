@@ -11,6 +11,10 @@
   margin: 20px 96px;
 }
 
+.splitter {
+  margin: 10px;
+}
+
 h1 {
   font-weight: bold;
   font-size: 2.5rem;
@@ -26,9 +30,10 @@ h1 {
 .navbar-item {
   font-weight: 800;
   font-size: 16px;
-  line-height: 19px;
+  line-height: 38px;
   text-decoration-line: underline;
   cursor: pointer;
+  text-align: center;
 }
 
 .lang-container {

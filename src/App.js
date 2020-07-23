@@ -83,6 +83,9 @@ export default class App extends Component {
             <h1>Marc-Antoine Jean</h1>
             <p>{t("header")}</p>
           </div>
+          <div className={styles["splitter"]}>
+            <Splitter />
+          </div>
           <div className={styles["navbar"]}>
             <span className={styles["navbar-item"]} onClick={() => this.handleClick(ROUTES.HOME)}>
               {t("nav.home")}
@@ -97,9 +100,17 @@ export default class App extends Component {
               {t("nav.readingList")}
             </span>
           </div>
+          <div className={styles["splitter"]}>
+            <Splitter />
+          </div>
           <div className={styles["content-container"]}>{currentPage}</div>
         </div>
       </div>
     );
   }
+}
+
+function Splitter() {
+  const style = { width: "100%", height: "100%", borderBottom: "1px solid rgba(55, 53, 48, 0.1)" };
+  return <div style={style}></div>;
 }
