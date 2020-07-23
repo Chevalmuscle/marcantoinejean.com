@@ -1,15 +1,14 @@
 .Drawer {
+  border-radius: 0 3px 3px 0px;
+  padding-left: 5px;
   $arrowSize: 6px;
   width: 100%;
   display: inline-block;
 
   &-title {
     cursor: pointer;
-    background-color: white;
-    border: 0px;
     display: flex;
-    justify-content: center;
-    outline: none;
+    font-weight: 500;
   }
 
   &-titleText {
@@ -38,5 +37,9 @@
     padding-left: 45px;
     overflow: hidden;
     transition: height 0.5s ease;
+  }
+
+  &:hover {
+    background-color: var(--light-grey);
   }
 }

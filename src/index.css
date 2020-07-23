@@ -1,6 +1,7 @@
 :root {
   --accent-color: #c2c8ff;
   --text-color: #373530;
+  --light-grey: rgba(55, 53, 48, 0.05);
 }
 
 * {

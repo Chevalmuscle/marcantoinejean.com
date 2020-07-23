@@ -27,10 +27,10 @@ class Drawer extends React.Component {
 
     return (
       <div className={`Drawer ${drawerStyles}`}>
-        <button className="Drawer-title" onClick={this.handleTitleClick}>
+        <div className="Drawer-title" onClick={this.handleTitleClick}>
           <div className="Drawer-arrow Drawer--rightArrow" />
           <span className="Drawer-titleText">{title}</span>
-        </button>
+        </div>
         <div
           className={`Drawer-content ${drawerStyles}`}
           ref={this.contentRef}
