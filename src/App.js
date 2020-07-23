@@ -51,7 +51,7 @@ export default class App extends Component {
         case ROUTES.HOME:
           return <Home />;
         case ROUTES.EMAIL:
-          return <ContactForm />;
+          return <ContactForm t={t} />;
         case ROUTES.RESUME:
           return <Resume />;
         case ROUTES.READING_LIST:

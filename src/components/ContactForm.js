@@ -66,10 +66,12 @@ class ContactForm extends Component {
   }
 
   render() {
+    const { t } = this.props;
+
     return (
       <div className={styles["contact-section"]}>
         <form className={styles["contact-form-container"]} onSubmit={this.handleOnSubmit}>
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">{t("email.name")}</label>
           <input
             id="name"
             type="text"
@@ -77,7 +79,7 @@ class ContactForm extends Component {
             onChange={(e) => this.handleOnChange("name", e.target.value)}
             required
           />
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">{t("email.email")}</label>
           <input
             id="email"
             type="email"
@@ -85,7 +87,7 @@ class ContactForm extends Component {
             onChange={(e) => this.handleOnChange("email", e.target.value)}
             required
           />
-          <label htmlFor="message">Message</label>
+          <label htmlFor="message">{t("email.message")}</label>
           <textarea
             id="message"
             type="text"
@@ -94,7 +96,7 @@ class ContactForm extends Component {
             required
           />
           <div className={styles["sent-button-container"]}>
-            <input type="submit" value="Send" />
+            <input type="submit" value={t("email.send")} />
             {this.state.fetchInProgress && (
               <div className={styles["is-fetching-spinner"]}>
                 <Spinner />

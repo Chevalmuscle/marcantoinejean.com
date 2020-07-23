@@ -1,7 +1,39 @@
+ul {
+  list-style-type: none;
+  padding: 0px;
+}
+
 .list-item {
   display: flex;
   align-items: center;
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
+}
+
+.insights-graph-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.insights-column-graph-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.insights-column-graph {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.insights-graph {
+  width: auto;
+  height: 240px;
+}
+
+.guideline-list {
+  padding-left: 40px;
+  list-style-type: circle;
 }
