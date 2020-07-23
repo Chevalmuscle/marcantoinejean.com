@@ -2,9 +2,9 @@ import React from "react";
 import { Drawer } from "./Drawer";
 import styles from "./Home.module.css";
 import { useI18n } from "react-simple-i18n";
-import insightsPersona from "../assets/png/insights_persona.png";
-import insightsFlow from "../assets/png/insights_flow.png";
-import insightsGraph from "../assets/png/insights_graph.png";
+import insightsPersona from "../assets/images/insights_persona.png";
+import insightsFlow from "../assets/images/insights_flow.png";
+import insightsGraph from "../assets/images/insights_graph.png";
 
 function Home() {
   const { t } = useI18n();

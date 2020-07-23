@@ -1,6 +1,9 @@
 #cover {
-  background-color: gray;
   width: 100%;
+  background-image: url("./assets/images/cover.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
   height: 200px;
 }
 
