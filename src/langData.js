@@ -1,7 +1,7 @@
 const langData = {
   en: {
     header:
-      "I like elegant solutions to everyday problems and I hate bureaucracy. I currently live in Montréal, Canada",
+      "I like elegant solutions to everyday problems. I currently live in Montréal, Canada",
     nav: {
       home: "Me",
       email: "Email",
@@ -90,7 +90,7 @@ const langData = {
   },
   fr: {
     header:
-      "J'aime réaliser des produits simples pour répondre à des besoins simples et je n'aime pas la bureaucratie. J'habite à Montréal",
+      "J'aime réaliser des produits simples pour répondre à des besoins simples. J'habite à Montréal",
     nav: {
       home: "Moi",
       email: "Email",
