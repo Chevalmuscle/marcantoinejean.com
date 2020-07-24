@@ -8,7 +8,9 @@
 }
 
 #main-container {
-  margin: 20px 96px;
+  margin: 20px auto;
+  width: calc(100% - 192px);
+  max-width: calc(1440px - 96px);
 }
 
 .splitter {
@@ -24,10 +26,11 @@ h1 {
 .navbar {
   display: flex;
   justify-content: space-around;
-  height: 38px;
+  height: 42px;
 }
 
 .navbar-item {
+  padding: 2px 10px;
   font-weight: 800;
   font-size: 16px;
   line-height: 38px;
@@ -37,7 +40,7 @@ h1 {
 }
 
 .lang-container {
-  position: absolute;
+  position: fixed;
   right: 0px;
   margin: 5px;
 }
@@ -53,6 +56,19 @@ h1 {
   cursor: pointer;
 }
 
+.passed-cover-image {
+  color: black;
+  background-color: #ffffff;
+}
+
 .lang-button-active {
   background: var(--accent-color2);
+  color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  #main-container {
+    margin: 5px;
+    width: calc(100% - 10px);
+  }
 }

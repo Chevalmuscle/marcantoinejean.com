@@ -14,13 +14,24 @@ export default class App extends Component {
     super(props);
     this.state = {
       currentPage: ROUTES.HOME,
+      coverImageIsVisible: false,
     };
 
     this.componentDidMount = this.componentDidMount.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
+  listenScrollEvent = (e) => {
+    if (window.scrollY > 200) {
+      this.setState({ coverImageIsVisible: false });
+    } else {
+      this.setState({ coverImageIsVisible: true });
+    }
+  };
+
   componentDidMount() {
+    window.addEventListener("scroll", this.listenScrollEvent);
+
     const currentPage = this.props.location.pathname;
     for (let route in ROUTES) {
       if (ROUTES[route] === currentPage) {
@@ -65,13 +76,17 @@ export default class App extends Component {
       <div>
         <div className={styles["lang-container"]}>
           <button
-            className={`${styles["lang-button"]} ${this.props.i18n.getLang() === "en" && styles["lang-button-active"]}`}
+            className={`${styles["lang-button"]} ${
+              this.props.i18n.getLang() === "en" && styles["lang-button-active"]
+            }  ${!this.state.coverImageIsVisible && styles["passed-cover-image"]}`}
             onClick={this.handleSetEnglish.bind(this)}
           >
             English
           </button>
           <button
-            className={`${styles["lang-button"]} ${this.props.i18n.getLang() === "fr" && styles["lang-button-active"]}`}
+            className={`${styles["lang-button"]} ${
+              this.props.i18n.getLang() === "fr" && styles["lang-button-active"]
+            } ${!this.state.coverImageIsVisible && styles["passed-cover-image"]}`}
             onClick={this.handleSetFrench.bind(this)}
           >
             Français
