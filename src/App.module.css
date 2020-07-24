@@ -40,7 +40,7 @@ h1 {
 }
 
 .lang-container {
-  position: absolute;
+  position: fixed;
   right: 0px;
   margin: 5px;
 }
@@ -56,8 +56,14 @@ h1 {
   cursor: pointer;
 }
 
+.passed-cover-image {
+  color: black;
+  background-color: #ffffff;
+}
+
 .lang-button-active {
   background: var(--accent-color2);
+  color: white;
 }
 
 @media only screen and (max-width: 600px) {
