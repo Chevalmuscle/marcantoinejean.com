@@ -1,22 +1,62 @@
 import React from "react";
-import { Drawer } from "./Drawer";
-import styles from "./Home.module.css";
+import styled from "styled-components";
 import { useI18n } from "react-simple-i18n";
+import { Drawer } from "./Drawer";
 import insightsPersona from "../assets/images/insights_persona.png";
 import insightsFlow from "../assets/images/insights_flow.png";
 import insightsGraph from "../assets/images/insights_graph.png";
+
+const ListItem = styled.li`
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+`;
+
+const InsightsGraphContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const InsightsColumnGraphContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const InsightsColumnGraph = styled.div`
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+`;
+
+const InsightsGraph = styled.img`
+  width: auto;
+  height: 240px;
+`;
+
+const GuidelineList = styled.ul`
+  padding-left: 40px;
+  list-style-type: circle;
+`;
+
+const UnstyledUl = styled.ul`
+  list-style-type: none;
+  padding: 0px;
+`;
 
 function Home() {
   const { t } = useI18n();
 
   return (
-    <ul>
-      <li className={styles["list-item"]}>
+    <UnstyledUl>
+      <ListItem>
         <Drawer title={`${"🧍‍♂️"} ${t("home.whoami.title")}`}>
           <p>{t("home.whoami.content")}</p>
         </Drawer>
-      </li>
-      <li className={styles["list-item"]}>
+      </ListItem>
+      <ListItem>
         <Drawer title={`${"🧠"} ${t("home.personality.title")}`}>
           <div>
             {t("home.personality.insights.text1")}{" "}
@@ -29,23 +69,23 @@ function Home() {
             <br />
             {t("home.personality.insights.text4")}
           </div>
-          <div className={styles["insights-graph-container"]}>
-            <div className={styles["insights-column-graph-container"]}>
-              <div className={styles["insights-column-graph"]}>
+          <InsightsGraphContainer>
+            <InsightsColumnGraphContainer>
+              <InsightsColumnGraph>
                 <span>{t("home.personality.insights.personaGraphTitle")}</span>
-                <img className={styles["insights-graph"]} src={insightsPersona} alt="Insights Persona" />
-              </div>
-              <div className={styles["insights-column-graph"]}>
+                <InsightsGraph src={insightsPersona} alt="Insights Persona" />
+              </InsightsColumnGraph>
+              <InsightsColumnGraph>
                 <span>{t("home.personality.insights.flowGraphTitle")}</span>
-                <img className={styles["insights-graph"]} src={insightsFlow} alt="Insights Evolution" />
-              </div>
-            </div>
-            <img className={styles["insights-graph"]} src={insightsGraph} alt="Insights Graph" />
-          </div>
+                <InsightsGraph src={insightsFlow} alt="Insights Evolution" />
+              </InsightsColumnGraph>
+            </InsightsColumnGraphContainer>
+            <InsightsGraph src={insightsGraph} alt="Insights Graph" />
+          </InsightsGraphContainer>
           {t("home.personality.insights.outro")}
         </Drawer>
-      </li>
-      <li className={styles["list-item"]}>
+      </ListItem>
+      <ListItem>
         <Drawer title={`${"🤓"} ${t("home.workstyle.title")}`}>
           <div>
             <p>
@@ -59,7 +99,7 @@ function Home() {
           <br />
           <div>
             {t("home.workstyle.guidelines.title")}
-            <ul className={styles["guideline-list"]}>
+            <GuidelineList>
               <li>
                 <strong>{t("home.workstyle.guidelines.organize.title")}:</strong>{" "}
                 {t("home.workstyle.guidelines.organize.content")}
@@ -92,13 +132,13 @@ function Home() {
                 <strong>{t("home.workstyle.guidelines.manage.title")}:</strong>{" "}
                 {t("home.workstyle.guidelines.manage.content")}
               </li>
-            </ul>
+            </GuidelineList>
           </div>
         </Drawer>
-      </li>
-      <li className={styles["list-item"]}>
+      </ListItem>
+      <ListItem>
         <Drawer title={`${"🗣"} ${t("home.social.title")}`}>
-          <ul>
+          <UnstyledUl>
             <li>
               <span role="img" aria-label="linkedin-emoji">
                 🧳
@@ -115,12 +155,12 @@ function Home() {
                 Github
               </a>
             </li>
-          </ul>
+          </UnstyledUl>
         </Drawer>
-      </li>
-      <li className={styles["list-item"]}>
+      </ListItem>
+      <ListItem>
         <Drawer title={`${"📚"} ${t("home.education.title")}`}>
-          <ul>
+          <UnstyledUl>
             <li>
               2016-2020 {t("home.education.ets")}{" "}
               <a target="_blank" rel="noopener noreferrer" href="https://www.etsmtl.ca/">
@@ -133,12 +173,12 @@ function Home() {
                 Cégep de l'Outaouais
               </a>
             </li>
-          </ul>
+          </UnstyledUl>
         </Drawer>
-      </li>
-      <li className={styles["list-item"]}>
+      </ListItem>
+      <ListItem>
         <Drawer title={`${"⎋"} ${t("home.interests.title")}`}>
-          <ul>
+          <UnstyledUl>
             <li>
               <span role="img" aria-label="ski-emoji">
                 ⛷
@@ -163,13 +203,13 @@ function Home() {
               </span>
               {t("home.interests.text4")}
             </li>
-          </ul>
+          </UnstyledUl>
           <p>{t("home.interests.content")}</p>
         </Drawer>
-      </li>
-      <li className={styles["list-item"]}>
+      </ListItem>
+      <ListItem>
         <Drawer title={`${"💡"} ${t("home.quotes.title")}`}>
-          <ul>
+          <UnstyledUl>
             <li>
               <q>Creators need to be able to see what they are doing, an immediate connection</q> ― Bret Victor
             </li>
@@ -179,10 +219,10 @@ function Home() {
             <li>
               <q>A few months writing code can save you a few hours in design.</q> ― Anonymous
             </li>
-          </ul>
+          </UnstyledUl>
         </Drawer>
-      </li>
-    </ul>
+      </ListItem>
+    </UnstyledUl>
   );
 }
 

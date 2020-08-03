@@ -1,12 +1,83 @@
 import React, { Component } from "react";
 import axios from "axios";
+import styled from "styled-components";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 
 import { Spinner } from "./Spinner";
 import { MAILING_SERVER_URL } from "../config";
 
-import styles from "./ContactForm.module.css";
+const ContactContainer = styled.div`
+  margin: 3rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+
+  @media screen and (max-width: 600px) {
+    margin: 20px 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+  }
+`;
+
+const ContactFormContainer = styled.form`
+  width: min(80%, 800px);
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
+`;
+
+const Label = styled.label`
+  color: var(--text-color);
+`;
+
+const Input = styled.input`
+  background-color: rgba(0, 0, 0, 0.02);
+  font-size: 0.8em;
+  border: 1px solid black;
+  width: 100%;
+  padding: 12px 15px;
+  margin: 4px 0 12px 0;
+  box-sizing: border-box;
+  border-radius: 2px;
+
+  &:focus {
+    outline: none !important;
+    background-color: white;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  }
+`;
+
+const TextArea = styled(Input)`
+  resize: vertical;
+  height: 100px;
+  min-height: 39px;
+`;
+
+const Submit = styled.input.attrs({ type: "submit" })`
+  -webkit-appearance: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+  font-size: 1em;
+  padding: 5px 30px;
+  border-radius: 2px;
+`;
+
+const SubmitButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+`;
+
+const SpinnerContainer = styled.div`
+  margin: 0px 20px;
+  height: 40px;
+  width: 40px;
+`;
 
 class ContactForm extends Component {
   constructor(props) {
@@ -70,42 +141,42 @@ class ContactForm extends Component {
     const { t } = this.props;
 
     return (
-      <div className={styles["contact-section"]}>
-        <form className={styles["contact-form-container"]} onSubmit={this.handleOnSubmit}>
-          <label htmlFor="name">{t("email.name")}</label>
-          <input
+      <ContactContainer>
+        <ContactFormContainer onSubmit={this.handleOnSubmit}>
+          <Label htmlFor="name">{t("email.name")}</Label>
+          <Input
             id="name"
             type="text"
             name="name"
             onChange={(e) => this.handleOnChange("name", e.target.value)}
             required
           />
-          <label htmlFor="email">{t("email.email")}</label>
-          <input
+          <Label htmlFor="email">{t("email.email")}</Label>
+          <Input
             id="email"
             type="email"
             name="email"
             onChange={(e) => this.handleOnChange("email", e.target.value)}
             required
           />
-          <label htmlFor="message">{t("email.message")}</label>
-          <textarea
+          <Label htmlFor="message">{t("email.message")}</Label>
+          <TextArea
             id="message"
             type="text"
             name="message"
             onChange={(e) => this.handleOnChange("message", e.target.value)}
             required
           />
-          <div className={styles["sent-button-container"]}>
-            <input type="submit" value={t("email.send")} />
+          <SubmitButtonContainer>
+            <Submit type="submit" value={t("email.send")} />
             {this.state.fetchInProgress && (
-              <div className={styles["is-fetching-spinner"]}>
+              <SpinnerContainer>
                 <Spinner />
-              </div>
+              </SpinnerContainer>
             )}
-          </div>
-        </form>
-      </div>
+          </SubmitButtonContainer>
+        </ContactFormContainer>
+      </ContactContainer>
     );
   }
 }
