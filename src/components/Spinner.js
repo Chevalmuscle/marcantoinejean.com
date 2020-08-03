@@ -1,9 +1,19 @@
-import React from "react";
+import styled, { keyframes } from "styled-components";
 
-import styles from "./Spinner.module.css";
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
 
-function Spinner() {
-  return <div id={styles["spinner"]}></div>;
-}
-
-export { Spinner };
+export const Spinner = styled.div`
+  border-radius: 50%;
+  border-top: 2px solid var(--accent-color);
+  width: 100%;
+  height: 100%;
+  -webkit-animation: ${rotate} 1s ease infinite;
+  animation: ${rotate} 1s ease infinite;
+`;

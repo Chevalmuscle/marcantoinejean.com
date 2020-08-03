@@ -1,20 +1,102 @@
 import React, { Component } from "react";
+import styled from "styled-components";
+import { Splitter } from "./components/Splitter";
 import { Home } from "./components/Home";
 import { ContactForm } from "./components/ContactForm";
 import { Resume } from "./components/Resume";
-import styles from "./App.module.css";
 import { createBrowserHistory } from "history";
+
+import coverImage from "./assets/images/cover.jpg";
 
 const history = createBrowserHistory();
 
 const ROUTES = { HOME: "/", EMAIL: "/email", RESUME: "/resume", READING_LIST: "/reading-list" };
+
+const ImageCover = styled.div`
+  width: 100%;
+  background-image: url(${coverImage});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  height: 200px;
+`;
+
+const MainContainer = styled.div`
+  margin: 20px auto;
+  width: calc(100% - 192px);
+  max-width: calc(1440px - 96px);
+  @media only screen and (max-width: 600px) {
+    margin: 5px;
+    width: calc(100% - 10px);
+  }
+`;
+
+const Title = styled.h1`
+  font-weight: bold;
+  font-size: 2.5rem;
+  line-height: 3rem;
+`;
+
+const LanguageContainer = styled.div`
+  position: fixed;
+  right: 0px;
+  margin: 5px;
+`;
+
+const LanguageButton = styled.button`
+  display: inline-block;
+  border: none;
+  border-radius: 3px;
+  margin: 2px;
+  color: #ffffff;
+  background: none;
+  outline: 0;
+  cursor: pointer;
+
+  ${({ active }) =>
+    active &&
+    `
+    background: var(--accent-color2);
+    color: white;
+  `}
+
+  ${({ passedCoverImage }) =>
+    passedCoverImage &&
+    `
+    color: black;
+    background-color: #ffffff;
+  `}
+
+  transition: background-color 0.5s ease;
+  transition: color 0.5s ease;
+`;
+
+const Navbar = styled.div`
+  display: flex;
+  justify-content: space-around;
+  height: 42px;
+`;
+
+const NavbarItem = styled.span`
+  padding: 2px 10px;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 38px;
+  text-decoration-line: underline;
+  cursor: pointer;
+  text-align: center;
+`;
+
+const SplitterContainer = styled.div`
+  margin: 10px;
+`;
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       currentPage: ROUTES.HOME,
-      coverImageIsVisible: false,
+      coverImageIsVisible: true,
     };
 
     this.componentDidMount = this.componentDidMount.bind(this);
@@ -74,58 +156,43 @@ export default class App extends Component {
 
     return (
       <div>
-        <div className={styles["lang-container"]}>
-          <button
-            className={`${styles["lang-button"]} ${
-              this.props.i18n.getLang() === "en" && styles["lang-button-active"]
-            }  ${!this.state.coverImageIsVisible && styles["passed-cover-image"]}`}
+        <LanguageContainer>
+          <LanguageButton
+            active={this.props.i18n.getLang() === "en"}
+            passedCoverImage={!this.state.coverImageIsVisible}
             onClick={this.handleSetEnglish.bind(this)}
           >
             English
-          </button>
-          <button
-            className={`${styles["lang-button"]} ${
-              this.props.i18n.getLang() === "fr" && styles["lang-button-active"]
-            } ${!this.state.coverImageIsVisible && styles["passed-cover-image"]}`}
+          </LanguageButton>
+          <LanguageButton
+            active={this.props.i18n.getLang() === "fr"}
+            passedCoverImage={!this.state.coverImageIsVisible}
             onClick={this.handleSetFrench.bind(this)}
           >
             Français
-          </button>
-        </div>
-        <div id={styles["cover"]}></div>
-        <div id={styles["main-container"]}>
+          </LanguageButton>
+        </LanguageContainer>
+        <ImageCover />
+        <MainContainer>
           <div>
-            <h1>Marc-Antoine Jean</h1>
+            <Title>Marc-Antoine Jean</Title>
             <p>{t("header")}</p>
           </div>
-          <div className={styles["splitter"]}>
+          <SplitterContainer>
             <Splitter />
-          </div>
-          <div className={styles["navbar"]}>
-            <span className={styles["navbar-item"]} onClick={() => this.handleClick(ROUTES.HOME)}>
-              {t("nav.home")}
-            </span>
-            <span className={styles["navbar-item"]} onClick={() => this.handleClick(ROUTES.EMAIL)}>
-              {t("nav.email")}
-            </span>
-            <span className={styles["navbar-item"]} onClick={() => this.handleClick(ROUTES.RESUME)}>
-              {t("nav.resume")}
-            </span>
-            <span className={styles["navbar-item"]} onClick={() => this.handleClick(ROUTES.READING_LIST)}>
-              {t("nav.readingList")}
-            </span>
-          </div>
-          <div className={styles["splitter"]}>
+          </SplitterContainer>
+          <Navbar>
+            <NavbarItem onClick={() => this.handleClick(ROUTES.HOME)}>{t("nav.home")}</NavbarItem>
+            <NavbarItem onClick={() => this.handleClick(ROUTES.EMAIL)}>{t("nav.email")}</NavbarItem>
+            <NavbarItem onClick={() => this.handleClick(ROUTES.RESUME)}>{t("nav.resume")}</NavbarItem>
+            <NavbarItem onClick={() => this.handleClick(ROUTES.READING_LIST)}>{t("nav.readingList")}</NavbarItem>
+          </Navbar>
+          <SplitterContainer>
             <Splitter />
-          </div>
-          <div className={styles["content-container"]}>{currentPage}</div>
-        </div>
+          </SplitterContainer>
+          <div>{currentPage}</div>
+        </MainContainer>
       </div>
     );
   }
-}
-
-function Splitter() {
-  const style = { width: "100%", height: "100%", borderBottom: "1px solid rgba(55, 53, 48, 0.1)" };
-  return <div style={style}></div>;
 }
