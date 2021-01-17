@@ -16,6 +16,10 @@
     "react-toastify": "^6.0.0-rc.2-1",
     "styled-components": "^5.1.1"
   },
+  "engines": {
+    "node": "14.15.4",
+    "npm": ">=6.0.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
